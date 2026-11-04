@@ -23,4 +23,12 @@ export class LoginPage {
     async expectLoggedIn() {
         await expect(this.page).toHaveURL(/inventory\.html/);
     }
+
+    async expectErrorMessage(message: string) {
+        await expect(this.page.getByTestId('error')).toHaveText(message);
+    }
+
+    async expectLoginUrl() {
+        await expect(this.page).toHaveURL('/');
+    }
 }
